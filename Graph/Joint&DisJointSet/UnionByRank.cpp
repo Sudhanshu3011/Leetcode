@@ -1,29 +1,24 @@
 #include <bits/stdc++.h>
-#include <vector>
+using namespace std;
 
 class DisjointSet
 {
     vector<int> parent, rank;
 
-public
+public:
     DisjointSet(int n)
     {
-        parent.resize(n + 1, 0);
+        parent.resize(n + 1);
         rank.resize(n + 1, 0);
-
         for (int i = 0; i <= n; i++)
-            rank[i] = i;
+            parent[i] = i;
     }
 
     int findUpar(int node)
     {
-
         if (node == parent[node])
-        {
             return node;
-        }
-
-        return parent[node] = findUpar(node);
+        return parent[node] = findUpar(parent[node]);
     }
 
     void Union(int u, int v)
@@ -31,13 +26,16 @@ public
         int u_upar = findUpar(u);
         int v_upar = findUpar(v);
 
+        if (u_upar == v_upar)
+            return;
+
         if (rank[u_upar] < rank[v_upar])
         {
-            parent[v_upar] = u_upar;
+            parent[u_upar] = v_upar;
         }
         else if (rank[u_upar] > rank[v_upar])
         {
-            parent[u_upar] = v_upar;
+            parent[v_upar] = u_upar;
         }
         else
         {
@@ -57,22 +55,16 @@ int main()
     ds.Union(4, 6);
 
     if (ds.findUpar(4) == ds.findUpar(1))
-    {
         cout << "Same\n";
-    }
     else
-    {
-        cout << "Not Same";
-    }
+        cout << "Not Same\n";
+
     ds.Union(1, 4);
+
     if (ds.findUpar(4) == ds.findUpar(1))
-    {
         cout << "Same\n";
-    }
     else
-    {
-        cout << "Not Same";
-    }
+        cout << "Not Same\n";
 
     return 0;
 }
