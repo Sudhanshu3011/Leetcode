@@ -1,3 +1,4 @@
+package Java;
 // The problem is to identify two specific numbers from an array of n integers where each integer from 1 to n appears 
 // exactly once except for one number that appears twice (A) and one number that is missing (B). The goal is to return 
 // these numbers [A, B] in linear time complexity and without using extra memory.

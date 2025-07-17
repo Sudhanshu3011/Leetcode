@@ -1,3 +1,4 @@
+package Java;
 // The problem of finding the number of inversions in an array is a common problem in computer science, especially in the context of sorting algorithms.
 
 // Problem Description

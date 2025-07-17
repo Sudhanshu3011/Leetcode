@@ -1,3 +1,4 @@
+package Java;
 // The task is to identify the majority element in a given array. The majority element is defined as the element that appears more than half the time in the array (i.e., more than ⌊n / 2⌋ times, where n is the size of the array). The problem guarantees that there is always a majority element present in the array.
 
 // Examples:
